@@ -1,0 +1,4 @@
+﻿  Mexican Wave.cpp
+c:\users\daorin\source\repos\codewars\mexican wave\mexican wave\mexican wave.cpp(20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\daorin\source\repos\codewars\mexican wave\mexican wave\mexican wave.cpp(34): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  Mexican Wave.vcxproj -> C:\Users\Daorin\source\repos\CodeWars\Mexican Wave\Debug\Mexican Wave.exe
