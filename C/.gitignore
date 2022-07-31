@@ -1,0 +1,5 @@
+#ignore test compile output
+prog
+
+#ignore compile result
+*.o
