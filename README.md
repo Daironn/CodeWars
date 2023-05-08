@@ -6,3 +6,10 @@ Welcome to my GitHub repository! This repository contains my solutions to variou
 
 
 I hope that my solutions can be helpful to anyone looking to improve their coding skills or looking for inspiration for their own solutions. Please feel free to explore the repository, leave comments, and share your thoughts with me. Thanks for visiting!
+
+
+## Authors
+- [@Daironn](https://github.com/Daironn)
+## CodeWars profile
+
+- https://www.codewars.com/users/Daironn
