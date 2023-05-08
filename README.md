@@ -1,13 +1,8 @@
-# CodeWars-Cpp-Python-C
-CodeWars katas compressed in one repo
+# CodeWars
+Welcome to my GitHub repository! This repository contains my solutions to various coding challenges from Codewars.com. The solutions are written in C++, C, and some in Python (though I've stopped learning that language). Here, you'll find code for a wide range of problems, from simple exercises to more complex challenges. 
 
-Here I track my progres on codewars.com
 
-My profile on the site:
-https://www.codewars.com/users/Daironn
+![Logo](https://w7.pngwing.com/pngs/477/603/png-transparent-codewars-button-icon.png)
 
-This repo is not for cheating and looking for completed katas if you do not know how to solve some task 
-you can always check solution on the official website.
 
-C++ folder is divided into two parts one is very old and I don't like how I handled solutions on windows.
-C++ ver2 is new version, clear and handled on Linux
+I hope that my solutions can be helpful to anyone looking to improve their coding skills or looking for inspiration for their own solutions. Please feel free to explore the repository, leave comments, and share your thoughts with me. Thanks for visiting!
