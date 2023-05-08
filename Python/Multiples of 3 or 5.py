@@ -1,3 +1,6 @@
+# KATA LINK
+# https://www.codewars.com/kata/514b92a657cdc65150000006
+
 def solution(number):
 
     product = 0

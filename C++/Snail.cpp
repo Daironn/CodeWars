@@ -1,88 +1,89 @@
-﻿// Snail.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
-//
+﻿/*
+Snail Sort
+
+Given an n x n array, return the array elements arranged from outermost elements to the middle element, traveling clockwise.
+
+array = [[1,2,3],
+         [4,5,6],
+         [7,8,9]]
+snail(array) #=> [1,2,3,6,9,8,7,4,5]
+
+For better understanding, please follow the numbers of the next array consecutively:
+
+array = [[1,2,3],
+         [8,9,4],
+         [7,6,5]]
+snail(array) #=> [1,2,3,4,5,6,7,8,9]
+
+This image will illustrate things more clearly:
+
+NOTE: The idea is not sort the elements from the lowest value to the highest; the idea is to traverse the 2-d array in a clockwise snailshell pattern.
+
+NOTE 2: The 0x0 (empty matrix) is represented as en empty array inside an array [[]].
+
+*/
 #include <vector>
 #include <iostream>
-std::vector<int> snail(const std::vector<std::vector<int>>& snail_map);
+int counter = 1;
 
-void horizontal(std::vector<std::vector<int>> vec, int side, int shift, std::vector<int> &newsnail);
-void vertical(std::vector<std::vector<int>> vec, int side, int shift, std::vector<int> &newsnail);
-
-int main()
+void fill(const std::vector<std::vector<int>> raw, std::vector<int>& input, int layer)
 {
-    std::vector<std::vector<int>> v = { {1,2,3,4}, {12,13,14,5}, {11,16,15,6}, {10,9,8,7} };
 
-    std::vector<int> new_snail = snail(v);
-
-    for (auto x : new_snail) {
-        std::cout << x;
+    if(input.size() % 2 == 1 && layer == (raw.size() / 2) )
+    {
+      input.push_back(raw[layer][layer]);
+      std::cout << layer << " " << layer<< "\n";
+      return;
+    }
+  
+    for(size_t i = 0; i < raw.size() - layer*2; i++)
+    {
+            std::cout << layer << " " << i+layer<< "\n";
+        input.push_back(raw[layer][i+layer]);
     }
 
-}
-std::vector<int> snail(const std::vector<std::vector<int>>& snail_map) {
-
-    std::vector<int> returned; 
-    int x;
-
-    if (snail_map.size() % 2 == 1) {
-        x = snail_map.size() / 2 + 1;
-    }
-    else {
-        x = snail_map.size() / 2;
+    for(size_t i = 1; i < raw.size() - layer*2; i++)
+    {
+        input.push_back(raw[i+layer][raw.size()-1-layer]);
     }
 
-    for (int i = 0; i < x; i++) {
-        if (i == x - 1) {
-            if (snail_map.size() % 2 == 0) {
-                horizontal(snail_map, 0, i,returned);
-                vertical(snail_map, 0, i, returned);
-                horizontal(snail_map, 1, i, returned);
-                vertical(snail_map, 1, i, returned);
-            }
-            else {
-                returned.push_back(snail_map[snail_map.size() / 2][snail_map.size() / 2 ]);
-            }
-        }
-        else {
-            horizontal(snail_map, 0, i, returned);
-            vertical(snail_map, 0, i, returned);
-            horizontal(snail_map, 1, i, returned);
-            vertical(snail_map, 1, i, returned);
-        }
+    for(int i = raw.size() - 1 - layer; i > 0+layer; i--)
+    {
+        input.push_back(raw[raw.size()-1-layer][i-1]);
     }
 
-    return returned;
-}
-void horizontal(std::vector<std::vector<int>> vec, int side, int shift, std::vector<int> &newsnail) {
-
-    if (side == 0) {
-        for (int i = 0; i < vec.size() - 1 - (shift*2); i++) {
-            //std::cout << vec[0 + shift][i + shift];
-            newsnail.push_back(vec[0 + shift][i + shift]);
-        }
-
-    }
-    else {
-        for (int i = vec.size()-1; i >=1+ shift*2 ; i--) {
-            //std::cout << vec[vec.size()-1 - shift][i - shift];
-            newsnail.push_back(vec[vec.size() - 1 - shift][i - shift]);
-        }
+    for(int i = raw.size() - 1 - layer; i > (0+layer)+1; i--)
+    {
+        input.push_back(raw[i-1][layer]);
 
     }
 }
-void vertical(std::vector<std::vector<int>> vec, int side, int shift, std::vector<int> &newsnail) {
 
-    if (side == 0) {
-        for (int i = 0; i < vec.size() - 1 - (shift * 2); i++) {
-            //std::cout << vec[i + shift][vec.size() - 1 - shift];
-            newsnail.push_back(vec[i + shift][vec.size() - 1 - shift]);
+std::vector<int> snail(const std::vector<std::vector<int>> &snail_map) {
+
+    if(snail_map[0].size() == 0)
+        return {};
+  
+    counter = 1;
+    std::vector<int> res;
+
+    if(snail_map.size() > 0)
+    {
+        if(snail_map.size() % 2 == 0)
+        {
+          for(size_t i = 0; i < snail_map.size()/2; i++)
+          {
+              fill(snail_map,res, i);
+          }
         }
-
-    }
-    else {
-        for (int i = vec.size() - 1; i >= 1 + shift*2; i--) {
-            //std::cout << vec[i-shift][0+shift];
-            newsnail.push_back(vec[i - shift][0 + shift]);
+        else
+        {
+          for(size_t i = 0; i < (snail_map.size()/2)+1; i++)
+          {
+              fill(snail_map,res, i);
+          }
         }
-
     }
+
+    return res;
 }
