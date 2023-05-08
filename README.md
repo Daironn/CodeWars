@@ -1,4 +1,4 @@
-# CodeWars
+# Codewars
 Welcome to my GitHub repository! This repository contains my solutions to various coding challenges from Codewars.com. The solutions are written in C++, C, and some in Python (though I've stopped learning that language). Here, you'll find code for a wide range of problems, from simple exercises to more complex challenges. 
 
 
@@ -10,6 +10,6 @@ I hope that my solutions can be helpful to anyone looking to improve their codin
 
 ## Authors
 - [@Daironn](https://github.com/Daironn)
-## CodeWars profile
+## Codewars profile
 
 - https://www.codewars.com/users/Daironn
