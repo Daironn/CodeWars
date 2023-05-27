@@ -18,7 +18,6 @@ void twoSum(unsigned count, const int numbers[count], int target,
       unsigned *index1, unsigned *index2)
 {
 // assign to the index1 and index2 pointers
-
   *index1 = *index2 = 0;
 
   for(; *index1<count; (*index1)++)
